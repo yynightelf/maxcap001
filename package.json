@@ -10,12 +10,47 @@
     "express": "^4"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^1",
-    "@cap-js/cds-types": "^0.10.0"
+    "@cap-js/cds-test": "^0.4.0",
+    "@cap-js/cds-types": "^0.10.0",
+    "@cap-js/sqlite": "^1"
   },
   "scripts": {
+    "test": "npx jest tests/test.js",
     "start": "cds-serve",
     "watch-maxfullstackcap001": "cds watch --open maxfullstackcap001/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "cds": {
+    "requires": {
+      "[development]": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "incident.support@tester.sap.com": {
+              "password": "initial",
+              "roles": [
+                "support"
+              ]
+            },
+            "maxinetheelf@gmail.com": {
+              "password": "initial",
+              "roles": [
+                "support"
+              ]
+            },
+            "alice": {
+              "roles": [
+                "support"
+              ]
+            },
+            "bob": {
+              "roles": [
+                "support"
+              ]
+            }
+          }
+        }
+      }
+    }
   },
   "sapux": [
     "app/maxfullstackcap001"
